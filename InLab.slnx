@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="InLab.Tests/InLab.Tests.csproj" />
+  <Project Path="InLab/InLab.csproj" />
+</Solution>
