@@ -1,0 +1,41 @@
+@model IEnumerable<InLab.Models.Calibracao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Detector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Detector.IdAde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCal)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCal">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCal">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCal">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

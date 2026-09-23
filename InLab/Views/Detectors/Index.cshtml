@@ -1,0 +1,83 @@
+@model IEnumerable<InLab.Models.Detector>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CadastroDet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SerialDet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FabricanteDet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModeloDet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusUsoDet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusCoDet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCoDet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCacDet)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area.IdAre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CadastroDet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialDet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FabricanteDet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModeloDet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusUsoDet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusCoDet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCoDet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCacDet)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdAde">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdAde">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAde">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,72 @@
+@model InLab.Models.Detector
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Detector</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdAre" class="control-label"></label>
+                <select asp-for="IdAre" class ="form-control" asp-items="ViewBag.IdAre"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CadastroDet" class="control-label"></label>
+                <input asp-for="CadastroDet" class="form-control" />
+                <span asp-validation-for="CadastroDet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SerialDet" class="control-label"></label>
+                <input asp-for="SerialDet" class="form-control" />
+                <span asp-validation-for="SerialDet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FabricanteDet" class="control-label"></label>
+                <input asp-for="FabricanteDet" class="form-control" />
+                <span asp-validation-for="FabricanteDet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModeloDet" class="control-label"></label>
+                <input asp-for="ModeloDet" class="form-control" />
+                <span asp-validation-for="ModeloDet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusUsoDet" class="control-label"></label>
+                <input asp-for="StatusUsoDet" class="form-control" />
+                <span asp-validation-for="StatusUsoDet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusCoDet" class="control-label"></label>
+                <input asp-for="StatusCoDet" class="form-control" />
+                <span asp-validation-for="StatusCoDet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataCoDet" class="control-label"></label>
+                <input asp-for="DataCoDet" class="form-control" />
+                <span asp-validation-for="DataCoDet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataCacDet" class="control-label"></label>
+                <input asp-for="DataCacDet" class="form-control" />
+                <span asp-validation-for="DataCacDet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

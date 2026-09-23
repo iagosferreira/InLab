@@ -1,47 +1,126 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - InLab</title>
-    <script type="importmap"></script>
+    <title>@ViewData["Title"] - Sistema InLab</title>
+    
+    <!-- Dependências do Bootstrap -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/InLab.styles.css" asp-append-version="true" />
+    
+    <style>
+        /* Base do Corpo */
+        body {
+            background-color: #f8f9fa; /* Cinza muito sutil, padrão corporativo */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar Sólida e Corporativa */
+        .navbar-custom {
+            background-color: #1a365d; /* Azul marinho chapado, sem gradiente */
+            border-bottom: 3px solid #0056b3; /* Linha de destaque para estrutura */
+            padding: 0.8rem 0;
+        }
+        
+        .navbar-custom .navbar-brand {
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .navbar-custom .nav-link {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .navbar-custom .nav-link:hover, 
+        .navbar-custom .nav-link:focus {
+            color: #ffffff;
+            background-color: #2a4365; /* Leve alteração de cor no hover, sem animações bruscas */
+            border-radius: 4px;
+        }
+
+        /* Container de Conteúdo */
+        .main-wrapper {
+            flex: 1;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        main {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6; /* Borda reta e simples */
+            border-radius: 4px; /* Cantos levemente arredondados, formato padrão web */
+            padding: 25px;
+        }
+
+        /* Rodapé Funcional */
+        .footer-custom {
+            background-color: #e9ecef;
+            border-top: 1px solid #ced4da;
+            padding: 1rem 0;
+            margin-top: auto;
+            font-size: 0.85rem;
+            color: #495057;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">InLab</a>
+        <nav class="navbar navbar-expand-md navbar-dark navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    INLAB | GEO-I
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="Alternar navegação">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 ms-4">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Areas" asp-action="Index">Gestão de Áreas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Detectors" asp-action="Index">Detectores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Calibracaos" asp-action="Index">Calibrações</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    <div class="container main-wrapper">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - InLab - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer-custom">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span>&copy; 2026 - Laboratório de Instrumentação GEO-I</span>
+            <span>Sistema InLab Versão 1.0</span>
         </div>
     </footer>
+
+    <!-- Scripts do Bootstrap e jQuery -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
